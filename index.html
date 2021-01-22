@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/master.js"></script>
     <title>Document</title>
@@ -17,6 +22,27 @@
       <div class="hole"></div>
       <div class="character"></div>
     </div>
-    <div class="ground"></div>
+    <div class="ground">
+      <div id="setting" onclick="setting()">
+        <img src="img/settings.svg" alt="setting" />
+      </div>
+    </div>
+    <div class="setting-box">
+      <div class="changeBird">
+        <span class="prev"></span>
+        <img src="img/bird.svg" alt="bird" />
+        <span class="next"></span>
+      </div>
+      <div class="buttons">
+        <div>
+          <div class="button night" onclick="changeBtn('night')"><span></span></div>
+          <span>night</span>
+        </div>
+        <div>
+          <div class="button hyper" onclick="changeBtn('hyper')"><span></span></div>
+          <span>hyper</span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
