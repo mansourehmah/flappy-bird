@@ -1,4 +1,3 @@
-// var pipe = document.querySelector(".pipe");
 // var character = document.querySelector(".character");
 function playGame() {
   document.querySelector(".play").classList.add("displayNone");
@@ -15,26 +14,23 @@ function setting() {
 }
 
 birds = ["bird.svg", "bird_blue.svg", "bird_red.svg"];
-index=0
+index = 0;
 function changeBird(btn) {
   if (btn == "next") {
-      if(index!=2){
-          index++
-      }
-      else{
-          index=0
-      }
+    if (index != 2) {
+      index++;
+    } else {
+      index = 0;
+    }
+  } else {
+    if (index == 0) {
+      index = 2;
+    } else {
+      index--;
+    }
   }
-  else{
-      if(index==0){
-          index=2
-      }
-      else{
-          index--
-      }
-  }
-  document.querySelector('.bird').src = 'img/' + birds[index]
-  document.querySelector('.changeBird .bird').src = 'img/' + birds[index]
+  document.querySelector(".bird").src = "img/" + birds[index];
+  document.querySelector(".changeBird .bird").src = "img/" + birds[index];
 }
 
 function changeBtn(btn) {
@@ -50,3 +46,12 @@ function changeBtn(btn) {
     document.querySelector(".hyper").classList.toggle("activeBtn");
   }
 }
+
+//main function
+window.onload = function () {
+  var hole = document.getElementsByClassName("hole")[0];
+  hole.addEventListener("animationiteration", () => {
+    var random = Math.random() * 220 - 4;
+    hole.style.top = random + "px";
+  });
+};

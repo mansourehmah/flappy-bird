@@ -122,8 +122,8 @@ body .ground {
 body .ground #setting {
   position: absolute;
   left: 30px;
-  top: 50px;
-  width: 30px;
+  top: 39%;
+  width: 5vw;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: pointer;
