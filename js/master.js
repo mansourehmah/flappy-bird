@@ -5,7 +5,7 @@ function playGame() {
   document.getElementById("hole").style.left = 100 + "%";
   document.getElementById("pipe").classList.remove("stop");
   document.getElementById("hole").classList.remove("stop");
-
+  document.querySelector("body").classList.remove('goTop')
   document.querySelector(".play").classList.add("displayNone");
   document.querySelector("#setting").classList.add("displayNone");
   document.querySelector(".ground").classList.add("playAnimation");
