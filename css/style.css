@@ -6,15 +6,116 @@
 }
 
 body {
-  background-color: #00b4d8;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 body .sky {
-  width: 300px;
-  height: 300px;
-  background-image: url(../img/1318915-small.png);
+  height: 80vh;
+  background-color: #00b4d8;
+  position: relative;
+}
+
+body .sky .play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(128, 128, 128, 0.704);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .sky .play img {
+  cursor: pointer;
+}
+
+body .sky .cloud {
+  width: 200vw;
+  height: 150px;
+  background-image: url(../img/cloud.svg);
+  background-size: 50% auto;
+  position: relative;
+  left: 0;
+  top: calc(100% - 90px);
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+body .sky .pipe {
+  height: 100%;
+  position: relative;
+  left: -90px;
+  width: 90px;
+  background-color: green;
+}
+
+body .ground {
+  width: 200%;
+  height: 20vh;
+  background-image: url(../img/ground.svg);
+  background-repeat: repeat;
+  position: relative;
+  left: 0;
+}
+
+@-webkit-keyframes _move {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes _move {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes pipe_move {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -90px;
+  }
+}
+
+@keyframes pipe_move {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -90px;
+  }
+}
+
+.playAnimation {
+  -webkit-animation: 2.5s _move linear infinite;
+          animation: 2.5s _move linear infinite;
+}
+
+.pipe_move {
+  -webkit-animation: 2.5s pipe_move linear infinite;
+          animation: 2.5s pipe_move linear infinite;
+}
+
+.displayNone {
+  display: none !important;
 }
 /*# sourceMappingURL=style.css.map */
