@@ -10,16 +10,26 @@ function playGame() {
 
   //   updating top position
   let character = document.getElementById("character");
+  let pipe = document.getElementById("pipe");
+  let hole = document.getElementById("hole");
   let maxTop = (window.innerHeight * 80) / 100 - 42;
   const fallInterval = setInterval(function () {
-    characterTop = window
+    characterTop = parseInt(window
       .getComputedStyle(character, null)
-      .getPropertyValue("top");
+      .getPropertyValue("top"));
+
+    blockLeft = parseInt(
+      window.getComputedStyle(pipe, null).getPropertyValue("left")
+    );
+    holeTop = parseInt(
+      window.getComputedStyle(hole, null).getPropertyValue("top")
+    );
     if (jumping == 0) {
-      character.style.top = parseInt(characterTop) + 1.5 + "px";
+      character.style.top = (characterTop) + 1.5 + "px";
     }
-    if (parseInt(characterTop) > maxTop) {
+    if (parseInt((characterTop) > maxTop)||((blockLeft<80)&&(blockLeft>-70)&&((holeTop>characterTop)||(characterTop>holeTop+160)))) {
       clearInterval(fallInterval);
+      console.log(characterTop, blockLeft , holeTop)
       alert("game over!");
     }
   }, 10);
@@ -32,11 +42,11 @@ function jump() {
   jumpCount = 0;
   let character = document.getElementById("character");
   const jumpInterval = setInterval(function () {
-    characterTop = window
+    characterTop = parseInt(window
       .getComputedStyle(character, null)
-      .getPropertyValue("top");
-    if (parseInt(characterTop) > 6) {
-      character.style.top = parseInt(characterTop) - 3 + "px";
+      .getPropertyValue("top"));
+    if (characterTop > 6) {
+      character.style.top = (characterTop) - 3 + "px";
     }
     if (jumpCount > 20) {
       clearInterval(jumpInterval);

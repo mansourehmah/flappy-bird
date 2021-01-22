@@ -109,14 +109,12 @@ body .sky .character {
   height: 42px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 20px;
 }
 
 body .sky .character img {
   width: 100%;
   height: 100%;
-  -webkit-transform: rotate(20deg);
-          transform: rotate(20deg);
   -webkit-transition: .6s;
   transition: .6s;
 }
@@ -294,10 +292,5 @@ body .setting-box .buttons > div .button span {
 
 .changeOp {
   opacity: 0.1 !important;
-}
-
-.rotateBird {
-  -webkit-transform: rotate(-20deg) !important;
-          transform: rotate(-20deg) !important;
 }
 /*# sourceMappingURL=style.css.map */
