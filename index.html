@@ -15,18 +15,18 @@
   <body>
     <div class="sky">
       <div class="jump" onclick="jump()"></div>
-      <div class="play">
+      <div class="play" id="play">
         <img src="img/game-over.svg" id="gameOver" alt="gameover" />
         <img src="img/play-button.svg" alt="flappy-bird" onclick="playGame()" />
       </div>
-      <div class="cloud"></div>
+      <div class="cloud" id="cloud"></div>
       <div class="pipe" id="pipe"></div>
       <div class="hole" id="hole"></div>
       <div class="character" id="character">
         <img src="img/bird.svg" class="bird" alt="bird" />
       </div>
     </div>
-    <div class="ground"></div>
+    <div class="ground" id="ground"></div>
     <div class="setting-box">
       <div class="changeBird">
         <span class="prev" onclick="changeBird('prev')"></span>

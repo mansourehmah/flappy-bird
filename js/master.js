@@ -2,18 +2,25 @@ var jumping = 0;
 var hype = 0;
 
 function playGame() {
+  // reset character and background
   document.getElementById("character").style.top = 0 + "px";
   document.getElementById("hole").style.left = 100 + "%";
   document.getElementById("pipe").classList.remove("stop");
   document.getElementById("hole").classList.remove("stop");
+  document.getElementById("ground").classList.remove("stop");
+  document.getElementById("cloud").classList.remove("stop");
   document.querySelector("body").classList.remove("goTop");
-  document.querySelector(".play").classList.add("displayNone");
-  document.querySelector("#setting").classList.add("displayNone");
-  document.querySelector(".ground").classList.add("playAnimation");
-  document.querySelector(".cloud").classList.add("playAnimation");
-  document.querySelector(".pipe").classList.add("pipe_move");
-  document.querySelector(".hole").classList.add("pipe_move");
-  document.querySelector("#gameOver").classList.add("displayFlex");
+
+  // start
+  document.getElementById("play").classList.add("displayNone");
+  document.getElementById("setting").classList.add("displayNone");
+  document.getElementById("ground").classList.add("playAnimation");
+  document.getElementById("cloud").classList.add("playAnimation");
+  document.getElementById("pipe").classList.add("pipe_move");
+  document.getElementById("hole").classList.add("pipe_move");
+  document.getElementById("gameOver").classList.add("displayFlex");
+
+  //   faster speed
   if (hype % 2) {
     document.getElementById("pipe").classList.add("hypper_due");
     document.getElementById("hole").classList.add("hypper_due");
@@ -48,12 +55,13 @@ function playGame() {
           (holeTop > characterTop || characterTop > holeTop + 160))
       ) {
         clearInterval(fallInterval);
-        document.querySelector(".play").classList.remove("displayNone");
-        document.querySelector(".cloud").classList.add("stop");
-        document.querySelector(".pipe").classList.add("stop");
-        document.querySelector(".ground").classList.add("stop");
-        document.querySelector(".hole").classList.add("stop");
-        document.querySelector("#setting").classList.remove("displayNone");
+        // clear for play again
+        document.getElementById("play").classList.remove("displayNone");
+        document.getElementById("cloud").classList.add("stop");
+        document.getElementById("pipe").classList.add("stop");
+        document.getElementById("ground").classList.add("stop");
+        document.getElementById("hole").classList.add("stop");
+        document.getElementById("setting").classList.remove("displayNone");
       }
     }, 10);
   }, 500);
@@ -61,29 +69,33 @@ function playGame() {
 
 // jumping function
 function jump() {
-  document.querySelector("#character img").classList.add("rotateBird");
-  jumping = 1;
-  jumpCount = 0;
-  let character = document.getElementById("character");
-  const jumpInterval = setInterval(function () {
-    characterTop = parseInt(
-      window.getComputedStyle(character, null).getPropertyValue("top")
-    );
-    if (characterTop > 6) {
-      character.style.top = characterTop - 3 + "px";
-    }
-    if (jumpCount > 20) {
-      clearInterval(jumpInterval);
-      jumping = 0;
-      jumpCount = 0;
-      document.querySelector("#character img").classList.remove("rotateBird");
-    }
-    jumpCount++;
-  }, 10);
+  var _play = document.getElementById("play");
+  if (getComputedStyle(_play, null).getPropertyValue("display") == "none") {
+    document.querySelector("#character img").classList.add("rotateBird");
+    jumping = 1;
+    jumpCount = 0;
+    let character = document.getElementById("character");
+    const jumpInterval = setInterval(function () {
+      characterTop = parseInt(
+        window.getComputedStyle(character, null).getPropertyValue("top")
+      );
+      if (characterTop > 6) {
+        character.style.top = characterTop - 3 + "px";
+      }
+      if (jumpCount > 20) {
+        clearInterval(jumpInterval);
+        jumping = 0;
+        jumpCount = 0;
+        document.querySelector("#character img").classList.remove("rotateBird");
+      }
+      jumpCount++;
+    }, 10);
+  }
 }
 
+// setting box
 function setting() {
-  document.querySelector("#setting").classList.toggle("rotate");
+  document.getElementById("setting").classList.toggle("rotate");
   document.querySelector("body").classList.toggle("goTop");
 }
 
@@ -142,5 +154,11 @@ window.onload = function () {
   hole.addEventListener("animationiteration", () => {
     var random = Math.random() * 220 - 4;
     hole.style.top = random + "px";
+  });
+  document.querySelector("body").addEventListener("keypress", (e) => {
+    if (e.key === " " || e.key === "Spacebar") {
+      e.preventDefault();
+      jump();
+    }
   });
 };
