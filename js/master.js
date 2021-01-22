@@ -1,11 +1,12 @@
 var jumping = 0;
+var hype = 0;
 
 function playGame() {
   document.getElementById("character").style.top = 0 + "px";
   document.getElementById("hole").style.left = 100 + "%";
   document.getElementById("pipe").classList.remove("stop");
   document.getElementById("hole").classList.remove("stop");
-  document.querySelector("body").classList.remove('goTop')
+  document.querySelector("body").classList.remove("goTop");
   document.querySelector(".play").classList.add("displayNone");
   document.querySelector("#setting").classList.add("displayNone");
   document.querySelector(".ground").classList.add("playAnimation");
@@ -13,6 +14,10 @@ function playGame() {
   document.querySelector(".pipe").classList.add("pipe_move");
   document.querySelector(".hole").classList.add("pipe_move");
   document.querySelector("#gameOver").classList.add("displayFlex");
+  if (hype % 2) {
+    document.getElementById("pipe").classList.add("hypper_due");
+    document.getElementById("hole").classList.add("hypper_due");
+  }
 
   //   updating top position
   let character = document.getElementById("character");
@@ -32,7 +37,7 @@ function playGame() {
         window.getComputedStyle(hole, null).getPropertyValue("top")
       );
       if (jumping == 0) {
-        character.style.top = characterTop + 1.5 + "px";
+        character.style.top = characterTop + 1 * ((hype % 2) + 1) + "px";
       }
 
       //gameover
@@ -113,6 +118,7 @@ function changeBtn(btn) {
   if (btn == "hyper") {
     document.querySelector(".hyper span").classList.toggle("changebtn");
     document.querySelector(".hyper").classList.toggle("activeBtn");
+    hype++;
   }
   if (btn == "trippy") {
     document.querySelector(".trippy span").classList.toggle("changebtn");

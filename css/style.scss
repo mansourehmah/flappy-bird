@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  &::selection{
+      background-color: transparent;
+  }
 }
 body {
   // background-color: #00b4d8;
@@ -230,4 +233,7 @@ body {
 }
 .stop {
   animation-play-state: paused !important;
+}
+.hypper_due{
+    animation-duration: 2s !important;
 }
