@@ -16,6 +16,7 @@
     <div class="sky">
       <div class="jump" onclick="jump()"></div>
       <div class="play">
+        <img src="img/game-over.svg" id="gameOver" alt="gameover" />
         <img src="img/play-button.svg" alt="flappy-bird" onclick="playGame()" />
       </div>
       <div class="cloud"></div>
@@ -25,11 +26,7 @@
         <img src="img/bird.svg" class="bird" alt="bird" />
       </div>
     </div>
-    <div class="ground">
-      <div id="setting" onclick="setting()">
-        <img src="img/settings.svg" alt="setting" />
-      </div>
-    </div>
+    <div class="ground"></div>
     <div class="setting-box">
       <div class="changeBird">
         <span class="prev" onclick="changeBird('prev')"></span>
@@ -50,6 +47,9 @@
           <span>hyper</span>
         </div>
       </div>
+    </div>
+    <div id="setting" onclick="setting()">
+      <img src="img/settings.svg" alt="setting" />
     </div>
   </body>
   <p>Click the button to get the computed background color for the test div.</p>
