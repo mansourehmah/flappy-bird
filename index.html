@@ -20,7 +20,9 @@
       <div class="cloud"></div>
       <div class="pipe"></div>
       <div class="hole"></div>
-      <div class="character"></div>
+      <div class="character">
+        <img src="img/bird.svg" class="bird" alt="bird" />
+      </div>
     </div>
     <div class="ground">
       <div id="setting" onclick="setting()">
@@ -29,17 +31,21 @@
     </div>
     <div class="setting-box">
       <div class="changeBird">
-        <span class="prev"></span>
-        <img src="img/bird.svg" alt="bird" />
-        <span class="next"></span>
+        <span class="prev" onclick="changeBird('prev')"></span>
+        <img src="img/bird.svg" class="bird" alt="bird" />
+        <span class="next" onclick="changeBird('next')"></span>
       </div>
       <div class="buttons">
         <div>
-          <div class="button night" onclick="changeBtn('night')"><span></span></div>
+          <div class="button night" onclick="changeBtn('night')">
+            <span></span>
+          </div>
           <span>night</span>
         </div>
         <div>
-          <div class="button hyper" onclick="changeBtn('hyper')"><span></span></div>
+          <div class="button hyper" onclick="changeBtn('hyper')">
+            <span></span>
+          </div>
           <span>hyper</span>
         </div>
       </div>

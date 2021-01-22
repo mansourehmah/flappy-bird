@@ -15,7 +15,7 @@ body {
     height: 80vh;
     background-color: #00b4d8;
     position: relative;
-    transition: .4s;
+    transition: 0.4s;
     .play {
       position: absolute;
       top: 0;
@@ -40,7 +40,7 @@ body {
       left: 0;
       bottom: -40px;
       animation-duration: 8s;
-      transition: .4s;
+      transition: 0.4s;
       opacity: 1;
     }
     .pipe {
@@ -78,11 +78,13 @@ body {
     .character {
       width: 60px;
       height: 42px;
-      background-image: url(../img/bird.svg);
-      background-size: cover;
       position: absolute;
       top: 0;
       left: 0;
+      img{
+          width: 100%;
+          height: 100%;
+      }
     }
   }
   .ground {
@@ -198,10 +200,10 @@ body {
 .activeBtn {
   background-color: #00b4d8 !important;
 }
-.changeSky{
-    background-color: #011b20 !important;
-    background-image: url(../img/stars.svg);
+.changeSky {
+  background-color: #011b20 !important;
+  background-image: url(../img/stars.svg);
 }
-.changeOp{
-    opacity: 0 !important;
+.changeOp {
+  opacity: 0 !important;
 }
