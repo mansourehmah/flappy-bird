@@ -101,7 +101,7 @@ function changeBird(btn) {
   document.querySelector(".bird").src = "img/" + birds[index];
   document.querySelector(".changeBird .bird").src = "img/" + birds[index];
 }
-
+var filter = 1;
 function changeBtn(btn) {
   if (btn == "night") {
     document.querySelector(".night span").classList.toggle("changebtn");
@@ -113,6 +113,20 @@ function changeBtn(btn) {
   if (btn == "hyper") {
     document.querySelector(".hyper span").classList.toggle("changebtn");
     document.querySelector(".hyper").classList.toggle("activeBtn");
+  }
+  if (btn == "trippy") {
+    document.querySelector(".trippy span").classList.toggle("changebtn");
+    document.querySelector(".trippy").classList.toggle("activeBtn");
+    let deg = 0;
+    filter++;
+    const filterInterval = setInterval(function () {
+      document.querySelector("body").style.filter =
+        "hue-rotate(" + deg + "deg)";
+      deg = deg + 10;
+      if (filter % 2) {
+        clearInterval(filterInterval);
+      }
+    }, 80);
   }
 }
 

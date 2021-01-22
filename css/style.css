@@ -182,7 +182,7 @@ body .ground {
 body .setting-box {
   background-color: #ddd894;
   padding: 30px;
-  height: 300px;
+  height: 350px;
   width: 100%;
 }
 
@@ -290,7 +290,7 @@ body #setting {
 }
 
 .goTop {
-  top: -300px !important;
+  top: -350px !important;
 }
 
 .changebtn {
