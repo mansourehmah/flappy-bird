@@ -27,6 +27,7 @@ function playGame() {
 
 // jumping function
 function jump() {
+  document.querySelector("#character img").classList.add("rotateBird");
   jumping = 1;
   jumpCount = 0;
   let character = document.getElementById("character");
@@ -41,6 +42,7 @@ function jump() {
       clearInterval(jumpInterval);
       jumping = 0;
       jumpCount = 0;
+      document.querySelector("#character img").classList.remove("rotateBird");
     }
     jumpCount++;
   }, 10);
