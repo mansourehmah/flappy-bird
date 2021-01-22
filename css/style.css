@@ -23,6 +23,13 @@ body .sky {
   transition: 0.4s;
 }
 
+body .sky .jump {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
 body .sky .play {
   position: absolute;
   top: 0;

@@ -1,4 +1,5 @@
-// var character = document.querySelector(".character");
+var jumping = 0;
+
 function playGame() {
   document.querySelector(".play").classList.add("displayNone");
   document.querySelector("#setting").classList.add("displayNone");
@@ -6,6 +7,38 @@ function playGame() {
   document.querySelector(".cloud").classList.add("playAnimation");
   document.querySelector(".pipe").classList.add("pipe_move");
   document.querySelector(".hole").classList.add("pipe_move");
+
+  //   updating top position
+  let character = document.getElementById("character");
+  setInterval(function () {
+    characterTop = window
+      .getComputedStyle(character, null)
+      .getPropertyValue("top");
+    if (jumping == 0) {
+      character.style.top = parseInt(characterTop) + 1.5 + "px";
+    }
+  }, 10);
+}
+
+// jumping function
+function jump() {
+  jumping = 1;
+  jumpCount = 0;
+  let character = document.getElementById("character");
+  const jumpInterval = setInterval(function () {
+    characterTop = window
+      .getComputedStyle(character, null)
+      .getPropertyValue("top");
+    if (parseInt(characterTop) > 6) {
+      character.style.top = parseInt(characterTop) - 3 + "px";
+    }
+    if (jumpCount > 20) {
+      clearInterval(jumpInterval);
+      jumping = 0;
+      jumpCount = 0;
+    }
+    jumpCount++;
+  }, 10);
 }
 
 function setting() {
