@@ -10,12 +10,17 @@ function playGame() {
 
   //   updating top position
   let character = document.getElementById("character");
-  setInterval(function () {
+  let maxTop = (window.innerHeight * 80) / 100 - 42;
+  const fallInterval = setInterval(function () {
     characterTop = window
       .getComputedStyle(character, null)
       .getPropertyValue("top");
     if (jumping == 0) {
       character.style.top = parseInt(characterTop) + 1.5 + "px";
+    }
+    if (parseInt(characterTop) > maxTop) {
+      clearInterval(fallInterval);
+      alert("game over!");
     }
   }, 10);
 }
