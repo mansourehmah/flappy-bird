@@ -42,6 +42,7 @@ function changeBtn(btn) {
     document.querySelector(".night span").classList.toggle("changebtn");
     document.querySelector(".night").classList.toggle("activeBtn");
     document.querySelector(".sky").classList.toggle("changeSky");
+    document.querySelector(".hole").classList.toggle("changeSky");
     document.querySelector(".cloud").classList.toggle("changeOp");
   }
   if (btn == "hyper") {

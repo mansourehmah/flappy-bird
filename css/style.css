@@ -279,10 +279,9 @@ body .setting-box .buttons > div .button span {
 
 .changeSky {
   background-color: #011b20 !important;
-  background-image: url(../img/stars.svg);
 }
 
 .changeOp {
-  opacity: 0 !important;
+  opacity: 0.1 !important;
 }
 /*# sourceMappingURL=style.css.map */
